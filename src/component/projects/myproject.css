@@ -1,0 +1,161 @@
+.my-projects-container {
+  padding: 30px;
+  background: #f9f9f9;
+  min-height: 100vh;
+}
+
+.tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.tabs button {
+  padding: 12px 24px;
+  border: none;
+  background: #e0e0e0;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #333;
+  transition: background 0.3s ease;
+}
+
+.tabs .active {
+  background: #0073b1;
+  color: white;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.project-card {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-height: 300px;
+  justify-content: space-between;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.project-title {
+  margin: 0;
+  font-size: 20px;
+  color: #222;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stack-badge {
+  background: #0073b1;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.project-info {
+  font-size: 14px;
+  color: #555;
+  margin-top: auto;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.btn {
+
+ 
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+/* Buttons */
+.join-btn {
+  
+  background: #0073b1;
+  color: #fff;
+  border: none;
+  margin:10px;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  justify-content: center; /* Add this */
+}
+
+.project-card {
+  max-width: 400px; /* Add this */
+  margin: 0 auto; /* Optional extra safety */
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  grid-column: 1 / -1; /* Make it take full grid width */
+  color: #555;
+}
+
+.empty-state img {
+  width: 150px;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.empty-state p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.icon-btn {
+  margin: 5px;
+  padding: 6px 12px;
+  font-size: x-large;
+ 
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.icon-btn:hover {
+  background-color: #dcdcdc;
+}
+
+
+
+
+

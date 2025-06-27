@@ -1,0 +1,106 @@
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+  font-size: 28px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #1d72b8;
+  outline: none;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.fileInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fileInputs label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #34495e;
+}
+
+.submitBtn {
+  background-color: #1d72b8;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submitBtn:hover {
+  background-color: #155d94;
+}
+
+.success {
+  background-color: #dff0d8;
+  color: #3c763d;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .container {
+    margin: 20px 16px;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .submitBtn {
+    font-size: 15px;
+  }
+}

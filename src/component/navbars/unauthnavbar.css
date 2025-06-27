@@ -1,0 +1,38 @@
+/* UnauthDashboard.css */
+.custom-navbar {
+    padding: 12px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #1c1f26;
+  }
+  
+  .brand-text {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #f8f9fa !important;
+    letter-spacing: 1px;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #ccc !important;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #ffffff !important;
+  }
+  
+  .nav-btn {
+    background-color: #0d6efd;
+    color: white !important;
+    padding: 6px 14px;
+    border-radius: 6px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-btn:hover {
+    background-color: #0b5ed7;
+  }
+  

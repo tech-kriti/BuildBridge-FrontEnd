@@ -1,0 +1,88 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.success {
+  color: green;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input,
+.textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.techList {
+  margin-top: 15px;
+}
+
+.checkboxLabel {
+  display: block;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.checkbox {
+  margin-right: 8px;
+}
+
+.submitBtn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submitBtn:hover {
+  background-color: #0056b3;
+}
+.reactSelect {
+  margin-top: 8px;
+}
+
+.select__control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  min-height: 40px;
+}
+
+.select__menu {
+  border-radius: 8px;
+  z-index: 5;
+}

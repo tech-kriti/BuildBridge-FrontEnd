@@ -1,0 +1,137 @@
+.chatbot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background: #f5f7fa;
+}
+
+.chat-window {
+  width: 400px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.bot-message {
+  background: #e0f7fa;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 12px;
+  max-width: 75%;
+  animation: fadeIn 0.5s ease;
+}
+
+.user-input {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.user-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.user-input button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.user-input button:hover {
+  background: #0056b3;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bot-typing {
+  display: inline-flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.bot-typing span {
+  width: 8px;
+  height: 8px;
+  background: #007bff;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+}
+
+.bot-typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bot-typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+.error-text {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.user-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to left */
+    gap: 5px; /* spacing between input, error and button */
+}
+
+.error-text {
+    color: red;
+    font-size: 12px;
+    margin: 0;
+}
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-wrapper input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.input-wrapper input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.input-wrapper button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.input-wrapper button:hover {
+    background-color: #0056b3;
+}
+

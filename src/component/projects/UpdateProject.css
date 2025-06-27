@@ -1,0 +1,29 @@
+.edit-project-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 30px;
+  background: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+.edit-project-container input,
+.edit-project-container textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.edit-project-container button {
+  padding: 10px 20px;
+  background: #0073b1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.edit-project-container button:hover {
+  background: #005a8c;
+}
+.success { color: green; }
+.error { color: red; }
