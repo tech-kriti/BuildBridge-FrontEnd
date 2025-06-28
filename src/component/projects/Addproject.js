@@ -26,7 +26,7 @@ const AddProject = () => {
       try {
         const res = await axios.get(Apis.Get_Tech);
         const options = res.data.technologies.map((tech) => ({
-          value: tech.technology_id,
+          value: tech.technology_id|| tech.id,
           label: tech.name,
         }));
         setTechnologyOptions(options);
