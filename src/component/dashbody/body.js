@@ -91,7 +91,7 @@ function Feed() {
             })}</span>
           </div>
           <div className="btn">
-            <button className="join-btn " onClick={() => navigate(`/home/project/${project.project_id || project._id}`)}>View Project</button>
+            <button className="join-btn " onClick={() => navigate(`/home/project/${project.project_id || project.id}`)}>View Project</button>
           </div>
         </div>
       ))}

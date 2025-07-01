@@ -46,7 +46,7 @@ useEffect(() => {
         return;
       }
       try {
-        const res = await axios.get(`https://buildbridge-bakend.onrender.com/user/search?skillName=${query}`, {
+        const res = await axios.get(`http://localhost:3000/user/search?skillName=${query}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -121,13 +121,13 @@ useEffect(() => {
                 {results.length > 0 ? (
                   results.map((project) => (
                     <div
-                      key={project.project_id}
+                      key={project.project_id||project.id}
                       style={{
                         padding: "10px",
                         borderBottom: "1px solid #eee",
                         cursor: "pointer",
                       }}
-                      onClick={() => handleProjectClick(project.project_id)}
+                      onClick={() => handleProjectClick(project.project_id||project.id)}
                     >
                       <strong>{project.title}</strong>
                       <p style={{ fontSize: "13px", margin: 0 }}>

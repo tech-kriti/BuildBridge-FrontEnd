@@ -34,16 +34,17 @@ function App() {
 
 
   const { user , token} = useAuth();
-  const dispatch=useDispatch()
+  const dispatch=useDispatch();
+  const id = user?.userId||user?.id;
 
  useEffect(() => {
-  if (user?.userId) {
+  if ((user?.userId||user?.id)) {
     socket.connect();
     console.log("🔌 Socket connected manually");
 
     // Join user's notification room
-    socket.emit("joinNotificationRoom", user.userId);
-    console.log("📨 Joined notification room:", `user_${user.userId}`);
+    socket.emit("joinNotificationRoom", (user.userId||user?.id))
+    console.log("📨 Joined notification room:", `user_${user.userId||user.id}`);
 
     // Listen for connection confirmation
     socket.on("connect", () => {
@@ -69,7 +70,7 @@ function App() {
     socket.off("new_notification");
     socket.off("connect");
   };
-}, [user?.userId, dispatch,token]);
+}, [id, dispatch,token]);
   return <>
         <ToastContainer />
 

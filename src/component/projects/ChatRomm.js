@@ -38,10 +38,10 @@ const ChatRoom = ({ projectId }) => {
 
   const fetchMessages = async () => {
     try {
-      const res = await axios.get(`${Apis.GetMesaages}${id}}`, {
+      const res = await axios.get(`${Apis.GetMesaages}${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      setMessages(res.data.mesages);
+      setMessages(res.data.mesages||res.data.messages);
     } catch (err) {
       console.error("Failed to fetch messages:", err);
     }

@@ -23,7 +23,7 @@ function AddSkill() {
 
     const fetchSkill = async () => {
         try {
-            const res = await axios.get(`${Apis.Get_Skills}${user.userId}`, {
+            const res = await axios.get(`${Apis.Get_Skills}${user.userId||user.id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }
@@ -83,7 +83,7 @@ function AddSkill() {
             skillName: skill.skillName,
             proficiencyLevel: skill.proficiencyLevel,
         });
-        setEditingId(skill.skillId);
+        setEditingId(skill.skillId||skill.id);
         setMessage('');
         setError('');
     };
@@ -142,14 +142,14 @@ function AddSkill() {
             <h3>Your Skills</h3>
             <div className="skills-list">
                 {skillList.map((skill) => (
-                    <div className="skill-card" key={skill.skillId}>
+                    <div className="skill-card" key={skill.skillId||skill.id}>
                         <h4>{skill.skillName}</h4>
                         <p data-level={skill.proficiencyLevel}>{skill.proficiencyLevel}</p>
                         <div className="actions">
                             <button onClick={() => handleEdit(skill)}>Edit</button>
                             <button style={{backgroundColor:"#dc3545"}} onClick={() => {
                                 const confirmDelete = window.confirm("Are you sure you want to delete this skill?");
-                                if (confirmDelete) handleDelete(skill.skillId);
+                                if (confirmDelete) handleDelete(skill.skillId||skill.id);
                             }} >Delete</button>
                         </div>
                     </div>

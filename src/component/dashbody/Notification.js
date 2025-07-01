@@ -15,7 +15,7 @@ function Notifications() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [projectId,setProjectId]=useState();
+  const [projectId, setProjectId] = useState();
   const fetchNotifications = async () => {
     try {
       setLoading(true);
@@ -57,9 +57,9 @@ function Notifications() {
       prev.map((note) =>
         note.request_id === requestId
           ? {
-              ...note,
-              request: { ...note.request, status },
-            }
+            ...note,
+            request: { ...note.request, status },
+          }
           : note
       )
     );
@@ -99,7 +99,7 @@ function Notifications() {
   };
 
   const filtered = allNotifications.filter((n) => n.type === activeTab);
-
+  console.log(filtered)
   return (
     <div className="notifications-container">
       <h2>Notifications</h2>
@@ -123,17 +123,32 @@ function Notifications() {
       ) : (
         <div className="notification-list">
           {filtered.map((note) => {
-            const status = note.request?.status?.toLowerCase(); // normalize status
+            const request = note.request || note.request_id; // compatible with both
+            const status = (request?.status || "").toLowerCase(); // normalize status
+
+            const sender = note.sender || note.sender_id;
+            const senderId = sender?.id || sender?.id; // SQL or Mongo
+            const senderPhoto = sender?.profile_photo;
+            const photoUrl = senderPhoto ? `https://buildbridge-bakend.onrender.com${senderPhoto}`
+                : `https://ui-avatars.com/api/?name=${user?.name}&background=random`
+            ;
+              
+            const requestId =
+              typeof request === "object"
+                ? request?.id
+                : request
+
+            // normalize status
             return (
               <div key={note.id} className="notification-item">
                 {(note.type === "request" || note.type === "message") && (
                   <div className="notification-header">
                     <img
-                      src={`https://buildbridge-bakend.onrender.com${note.sender.profile_photo}`}
+                      src={photoUrl}
                       alt="Sender"
                       className="profile-pic"
                       onClick={() =>
-                        navigate(`/home/view-profile/${note.sender_id}`)
+                        navigate(`/home/view-profile/${senderId}`)
                       }
                       title="View Profile"
                     />
@@ -146,7 +161,7 @@ function Notifications() {
                           className="icon-btn"
                           title="Accept"
                           onClick={() =>
-                            handleAccept(note.request_id, "accepted")
+                            handleAccept(requestId, "accepted")
                           }
                         />
                         <img

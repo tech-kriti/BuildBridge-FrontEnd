@@ -47,9 +47,17 @@ function ViewDetails() {
       console.log("Error fetching members", err);
     }
   };
+  console.log(user.id)
+  const creatorId =
+  typeof projectDetail.created_by === "object"
+    ? projectDetail.created_by?.id 
+    : projectDetail.created_by;
 
-  const isCreator = (projectDetail.created_by | projectDetail.created_by?._id) === (user.userId | user._id);
-  console.log(isCreator);
+const currentUserId = user.userId || user.id;
+
+const isCreator = creatorId === currentUserId;
+
+ 
   console.log(acceptedMembers)
   const isMember = acceptedMembers.some(m => m.user.userId === user.userId);
 
@@ -144,7 +152,7 @@ console.log(projectDetail)
             <strong>Created By:</strong>
             <span>
               {projectDetail.created_by?.name || projectDetail.user?.name}
-              (<span className="email" style={{cursor:"pointer"}} onClick={() => navigate(`/home/view-profile/${projectDetail.user?.userId}`)}>{projectDetail.created_by?.email || projectDetail.user?.email}</span>)
+              (<span className="email" style={{cursor:"pointer"}} onClick={() => navigate(`/home/view-profile/${projectDetail.user?.userId||projectDetail.created_by?.id}`)}>{projectDetail.created_by?.email || projectDetail.user?.email}</span>)
             </span>
             
           </div>
@@ -193,7 +201,7 @@ console.log(projectDetail)
               <button className="icon-btnn chat" onClick={() => navigate(`/home/chatroom/${id}`)}><FaComments /> Chat</button>
             </>
           ) : (
-            <button className="icon-btnn request" onClick={() => sendJoinRequest(id, projectDetail.created_by?._id || projectDetail.created_by)} ><FaUserPlus /> Request to Join</button>
+            <button className="icon-btnn request" onClick={() => sendJoinRequest(id, projectDetail.created_by?.id || projectDetail.created_by)} ><FaUserPlus /> Request to Join</button>
           )}
         </div>
       </div>
@@ -218,7 +226,7 @@ console.log(projectDetail)
                 <select
                   value={member.role}
                   onChange={(e) =>
-                    handleRoleChange(member.user.userId, e.target.value)
+                    handleRoleChange(member.user.userId||member.user.id, e.target.value)
                   }
                 >
                   <option value="admin">Admin</option>
@@ -228,7 +236,7 @@ console.log(projectDetail)
 
                 <button
                   className="remove-btn"
-                  onClick={() => removeMember(member.user.userId)}
+                  onClick={() => removeMember(member.user.userId || member.user.id)}
                 >
                   Remove
                 </button>

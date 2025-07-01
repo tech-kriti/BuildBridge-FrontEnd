@@ -27,7 +27,7 @@ function AddEducation() {
 
     const fetchEducation = async () => {
         try {
-            const res = await axios.get(`${Apis.Get_Eductaion}${user.userId}`, {
+            const res = await axios.get(`${Apis.Get_Eductaion}${user.userId ||user.id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -93,7 +93,7 @@ function AddEducation() {
     };
     const handleEdit = (edu) => {
         setIsEditing(true);
-        setEditId(edu.eduId);
+        setEditId(edu.eduId||edu.id);
         setEducation({
             degree: edu.degree,
             institution_name: edu.institution_name,
@@ -146,7 +146,7 @@ function AddEducation() {
             <div className="education-list">
                 {educationList.length > 0 ? (
                     educationList.map((edu) => (
-                        <div className="education-card" key={edu.eduId}>
+                        <div className="education-card" key={edu.eduId|| edu.id}>
                             <div className="edu-header">
                                 <h4 className="degree">{edu.degree}</h4>
                                 <p className="field">{edu.field_of_study}</p>
@@ -162,7 +162,7 @@ function AddEducation() {
 
                             <div className="actions">
                                 <button className="edit-btn" onClick={() => handleEdit(edu)}> Edit</button>
-                                <button className="delete-btn" onClick={() => handleDelete(edu.eduId)}> Delete</button>
+                                <button className="delete-btn" onClick={() => handleDelete(edu.eduId||edu.id)}> Delete</button>
                             </div>
                         </div>
 

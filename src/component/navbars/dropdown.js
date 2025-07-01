@@ -48,7 +48,11 @@ function DropDown(){
             <nav className="sidebar-nav">
                 <div className="profile-left">
                     <img
-                        src={`https://buildbridge-bakend.onrender.com${user.profile_photo}`}
+                        src={
+              user.profile_photo
+                ? `https://buildbridge-bakend.onrender.com${user.profile_photo}`
+                : `https://ui-avatars.com/api/?name=${user?.name}&background=random`
+            }
                         alt="Profile"
                         className="profile-Image"
                     />
