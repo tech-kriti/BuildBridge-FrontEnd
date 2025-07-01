@@ -46,7 +46,7 @@ useEffect(() => {
         return;
       }
       try {
-        const res = await axios.get(`http://localhost:3000/user/search?skillName=${query}`, {
+        const res = await axios.get(`https://buildbridge-frontend.onrender.com/user/search?skillName=${query}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
